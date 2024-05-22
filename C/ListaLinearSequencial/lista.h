@@ -14,8 +14,11 @@ typedef struct{
 }Lista;
 
 void Iniciar(Lista *L);
-void Retornar(Lista *L);
-void Imprimir(Lista *L);
-int Busca(Lista *L, TipoChave *ch);
+void RetornarNElementos(Lista *L);
+void ImprimirElementos(Lista *L);
+void ReiniciarLista(Lista *L);
+int BuscaElemento(Lista *L, TipoChave *ch);
 int InsertFinal(Lista *L, Registro *r);
 int InsertInicio(Lista *L, Registro *r);
+int InsertPos(Lista *L, Registro *r, int j);
+int ExcluirElemento(Lista *L, TipoChave *ch);
