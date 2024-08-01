@@ -1,0 +1,70 @@
+Arvores Binarias de Busca(ABB)
+Propriedade: 
+    Seja x um nó e uma ABB. 
+    Se x é u nó na subarvore esquerda de x, então y.chave<=x.chave.
+    Se y é um nó na subarvore direita de y, então x.chave<=y.chave.
+    
+    
+Remover um nó z:
+-Se z nao tem filho(folha), basta remover;
+-Se z tem apenas um filho, este assume o lugar de z;
+-Se z tiver dois filhos, encontramos o sucessor de z, y, que assume o lugar de z. Subarvore direita de z vira de y;
+-Se y é filho a direita de z, substituimos z por y;
+-Caso contrario, substituimos y por seu filho a direita e trocamos z por y.
+
+Troca(T,u,v)
+
+if u.p==NULL
+	T.raiz=v;
+else if u=u.p.esq
+	u.p.esq=v;
+else
+	u.p.dir=v;
+if v=!NULL
+	v.p=u.p
+	
+a) 	q		q
+	|               |
+	z	->	r 
+      /	  \           /   \
+    NULL   r
+	
+b)	q               q
+	|               |
+	z       ->      l 
+      /	  \           /   \
+     l    NULL
+   /   \
+
+c)
+
+
+
+
+d)	q		|
+	|               q             q
+        z	->	|     ->      | 
+      /   \             z             y
+     l     r          /   \         /   \
+         /   \       l     y       l     r
+        y                /   \         /   \
+      /	  \            NULL   r       x
+    NULL   x                /   \
+                           x    
+    
+DELETE(T,z):
+	if z.esq==NULL
+		troca(T,Z,Z->dir);
+	else if z.dir==NULL
+		troca(T,Z,Z->esq);
+	else{
+		y=min(z.dir);
+		if y.p=!z{
+			troca(T,y,y.dir);
+			y.dir.p=y;
+			}
+		troca(T,z,y);
+		y.esq=z.esq;
+		y.esq.p=y;
+	}		
+
